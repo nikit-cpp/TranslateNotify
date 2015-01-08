@@ -78,3 +78,5 @@ println result
 // Разбор результата
 
 // Передача исходного текста и результата в notify-send
+def notify = ["notify-send", "-u", "critical", "${xselOutput}", "${result}"].execute()
+notify.waitFor()
