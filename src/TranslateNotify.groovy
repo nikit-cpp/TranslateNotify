@@ -67,9 +67,11 @@ Meanwhile Commons Beanutils simplifies property access for objects, including ar
  */
 
 def strings = JsonPath.read(strjson, '$.sentences[*].trans');
-strings.each{
+/*strings.each{
 	println it
-}
+}*/
+String result = strings.join("")
+println result
 //println strings
 // Запрос wget'ом закодированной строки c google-translate
 
