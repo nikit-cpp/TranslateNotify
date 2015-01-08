@@ -59,10 +59,8 @@ println strjson
 
 
 /*
- But in case if you get arbitrary JSON objects and you would like process them in the way you described, I would suggest combine Jackson JSON processor along with Apache's Commons Beanutils.
- 
- The idea is the following: Jackson by default process all JSON's as java.util.Map instances, meanwhile Commons Beanutils simplifies property access for objects, including arrays and Map supports.
- 
+But in case if you get arbitrary JSON objects and you would like process them in the way you described, I would suggest combine Jackson JSON processor along with Apache's Commons Beanutils.
+The idea is the following: Jackson by default process all JSON's as java.util.Map instances, meanwhile Commons Beanutils simplifies property access for objects, including arrays and Map supports.
  */
 
 def strings = JsonPath.read(strjson, 'sentences[*].trans');
