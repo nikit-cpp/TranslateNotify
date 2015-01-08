@@ -40,7 +40,7 @@ println "From xsel input:"
 println xselOutput
 
 // http://stackoverflow.com/questions/10334358/how-to-get-and-parse-json-answer-from-google-translate/10527235#10527235
-String url = "http://example.com/query?q=" + URLEncoder.encode('random word £500 bank $.\nHi, america!', 'UTF-8');
+String url= "http://translate.google.com/translate_a/t?client=p&text=\"" + URLEncoder.encode(xselOutput, 'UTF-8') + "\"&sl=auto&tl=ru";
 // wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text="cat"&sl=auto&tl=ru"
 List wget = [
 "wget",
@@ -48,7 +48,7 @@ List wget = [
 "Mozilla/5.0",
 "-qO",
 "-",
-"http://translate.google.com/translate_a/t?client=p&text=\"${xselOutput}\"&sl=auto&tl=ru"
+url
 ]
 //println wget.join(" ")
 def wgetResult = procLaunch(wget)
