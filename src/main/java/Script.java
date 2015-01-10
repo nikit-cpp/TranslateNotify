@@ -36,10 +36,10 @@ public class Script {
 		//println wget.join(" ")
 		ExecutorResult wgetResult = Executor.execute(wget);
 		
-		String json = wgetResult.getStdOut();
-		String strjson=json.replace("\\\"", "");
+		String rawJson = wgetResult.getStdOut();
+		String json=rawJson.replace("\\\"", "");
 		System.out.println("JSON:");
-		System.out.println(strjson);
+		System.out.println(json);
 		
 		
 		/*
@@ -49,10 +49,7 @@ public class Script {
 		Meanwhile Commons Beanutils simplifies property access for objects, including arrays and Map supports.
 		 */
 		
-		List<String> strings = JsonPath.read(strjson, "$.sentences[*].trans");
-		/*strings.each{
-			println it
-		}*/
+		List<String> strings = JsonPath.read(json, "$.sentences[*].trans");
 		String translateResult = StringUtils.join(strings, "");
 		System.out.println(translateResult);
 		
