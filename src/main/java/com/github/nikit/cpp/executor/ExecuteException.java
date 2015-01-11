@@ -1,3 +1,4 @@
+package com.github.nikit.cpp.executor;
 
 public class ExecuteException extends Exception {
 	private static final long serialVersionUID = 1L;

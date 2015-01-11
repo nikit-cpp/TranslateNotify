@@ -1,9 +1,12 @@
+package main;
+
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.util.List;
-
 import org.apache.commons.lang3.StringUtils;
-
+import com.github.nikit.cpp.executor.ExecuteException;
+import com.github.nikit.cpp.executor.Executor;
+import com.github.nikit.cpp.executor.ExecutorResult;
 import com.jayway.jsonpath.JsonPath;
 
 
@@ -17,10 +20,10 @@ public class Script {
 		// Вызов xsel -o
 		ExecutorResult xselResult = Executor.execute(xsel);
 		String xselOutput = xselResult.getStdOut();
-		System.out.println("From xsel input:");
+		System.out.println("Selected text:");
 		System.out.println(xselOutput);
 		
-		// Кодирование строки в url
+		// Кодирование строки в url для возможности перевода нескольких абзацев -- кодируем энтеры, запятые и прочие точки.
 		// http://stackoverflow.com/questions/10334358/how-to-get-and-parse-json-answer-from-google-translate/10527235#10527235
 		String url= "http://translate.google.com/translate_a/t?client=p&text=\"" + URLEncoder.encode(xselOutput, "UTF-8") + "\"&sl=auto&tl=ru";
 		// wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text="cat"&sl=auto&tl=ru"
@@ -37,8 +40,9 @@ public class Script {
 		ExecutorResult wgetResult = Executor.execute(wget);
 		
 		String rawJson = wgetResult.getStdOut();
+		// Удаляем лишние слэш и кавычку
 		String json=rawJson.replace("\\\"", "");
-		System.out.println("JSON:");
+		System.out.println("JSON responce:");
 		System.out.println(json);
 		
 		

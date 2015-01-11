@@ -5,6 +5,16 @@
 	<artifactId>TranslateNotify</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 
+	<properties>
+		<project.build.sourceEncoding>UTF8</project.build.sourceEncoding>
+		<finalJarName>translateNotify</finalJarName>
+		<mainClass>main.Script</mainClass>
+		<maven.compiler.source>1.7</maven.compiler.source>
+		<maven.compiler.target>1.7</maven.compiler.target>
+		<maven.compiler.version>3.2</maven.compiler.version>
+	</properties>
+
+
 	<dependencies>
 		<dependency>
 			<groupId>com.jayway.jsonpath</groupId>
@@ -18,5 +28,45 @@
 		</dependency>
 
 	</dependencies>
+
+	<build>
+		<plugins>
+			<plugin>
+				<artifactId>maven-assembly-plugin</artifactId>
+				<version>2.5</version>
+				<executions>
+					<execution>
+						<id>make-assembly</id>
+						<phase>package</phase>
+						<goals>
+							<goal>single</goal>
+						</goals>
+					</execution>
+				</executions>
+				<configuration>
+					<descriptorRefs>
+						<descriptorRef>jar-with-dependencies</descriptorRef>
+					</descriptorRefs>
+					<archive>
+						<manifest>
+							<mainClass>${mainClass}</mainClass>
+						</manifest>
+					</archive>
+					<finalName>${finalJarName}</finalName>
+					<appendAssemblyId>false</appendAssemblyId>
+				</configuration>
+			</plugin>
+			<!-- Запрещаем работу maven-jar-plugin, т. к. он создаёт левые jar http://stackoverflow.com/questions/2188746/what-is-the-best-way-to-avoid-maven-jar -->
+			<plugin>
+				<artifactId>maven-jar-plugin</artifactId>
+				<executions>
+					<execution>
+						<id>default-jar</id>
+						<phase>none</phase>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
 
 </project>
