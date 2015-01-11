@@ -9,7 +9,7 @@ Oracle JDK 1.7 or higher
 Сделано по мотивам [этого поста](http://habrahabr.ru/post/137215/).
 Главное отличие -- возможность переводить абзацы (за счёт кодирования вывода xsel с помощью `URLEncoder.encode()`).
 Чтобы начать пользоваться этой утилитой, нужно:  
-* забиндить в системе сочетание клавиш (например Alt+A) на запуск `java -jar workspace/TranslateNotify/target/translateNotify.jar`  
+* забиндить в системе сочетание клавиш (например Alt+A) на запуск `java -jar path/to/workspace/TranslateNotify/target/translateNotify.jar`  
 * выделить текст  
 * нажать свежесозданный хоткей.  
 
