@@ -3,6 +3,7 @@ Oracle JDK 1.7 or higher
 **linux-utilites:**
 * wget
 * xsel
+* notify-send
 
 #Usage
 Сделано по мотивам [этого поста](http://habrahabr.ru/post/137215/).
