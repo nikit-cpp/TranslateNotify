@@ -1,2 +1,9 @@
-/bin/
-/target/
+!.gitignore
+bin
+target
+.settings
+.metadata
+.classpath
+.project
+.idea
+*.iml
