@@ -24,9 +24,11 @@ public class Script {
 		System.out.println(xselOutput);
 		
 		// Кодирование строки в url для возможности перевода нескольких абзацев -- кодируем энтеры, запятые и прочие точки.
-		// http://stackoverflow.com/questions/10334358/how-to-get-and-parse-json-answer-from-google-translate/10527235#10527235
-		String url= "http://translate.google.com/translate_a/t?client=p&text=\"" + URLEncoder.encode(xselOutput, "UTF-8") + "\"&sl=auto&tl=ru";
-		// wget -U "Mozilla/5.0" -qO - "http://translate.google.com/translate_a/t?client=t&text="cat"&sl=auto&tl=ru"
+		String encoded = URLEncoder.encode(xselOutput, "UTF-8");
+		System.out.println("Encoded:");
+		System.out.println(encoded);
+		
+		String url= "http://translate.google.com/translate_a/t?client=p&text=\"" + encoded + "\"&sl=auto&tl=ru";
 		// Запрос wget'ом закодированной строки c google-translate
 		String[] wget = new String[]{
 			"wget",
