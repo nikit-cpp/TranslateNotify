@@ -14,8 +14,12 @@ Oracle JDK 1.7 or higher
 * нажать свежесозданный хоткей.  
 
 #Скриншот
-![Скриншот](https://img-fotki.yandex.ru/get/15527/165433899.1/0_13459c_5ea134eb_orig)
+![Скриншот](https://img-fotki.yandex.ru/get/15527/165433899.1/0_13459c_5ea134eb_orig)  
+
+#Download
+[jar-with-dependencies releases here](http://mvn.16mb.com/releases/TranslateNotify)  
 
 #Features
 * запросы к JSON через JSONPath  
 * создан собственный [артифакт Executor](https://github.com/nikit-cpp/Executor.git) для удобного получения stdout, stderr и exitcode процесса.  
+* загрузка релиза на FTP с помощью `mvn wagon:upload`  
